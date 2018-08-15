@@ -127,7 +127,53 @@ return p;
 	
 }
 
+int menu(){
+	
+    int trigger=1;
+
+    do
+    {
+        printf("\n\tSchool System\n\n");
+        printf("1. Show Students\n");
+        printf("2. \n");
+        printf("3. \n");
+        printf("0. Exit\n");
+		char *teste;
+        scanf("%d", &trigger);
+        
+        system("cls || clear");
+
+        switch(trigger)
+        {
+            case 1:
+                
+                break;
+
+            case 2:
+                
+                break;
+
+            case 3:
+                
+                break;
+
+            case 0:
+                exit(0);
+                break;
+
+            default:
+                printf("Enter your selection\n");
+        }
+    } while(trigger);
+	
+}
+
+
+
 int main(){
+
+menu();
+/*
 Students* ClassA = new_list();
 ClassA = add(ClassA, "Rafael",1060016);
 ClassA = add(ClassA, "Gabriel",2053716);
@@ -143,6 +189,7 @@ ClassB = add(ClassB, "Rafaello",1070016);
 ClassB = add(ClassB, "Gabriela",2073716);
 
 print_students(ClassB,"Class B");
-
+*/
 }
+
 
