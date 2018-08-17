@@ -57,7 +57,6 @@ return l;
 Students* class_allocate(Students* l, int id, char *class_name){
 	Students* p = l;
 	if(!empty(l)){
-		printf("Class name Allocate -> %s",class_name);
 		if(p->reg_num == id){
 			p->class_name = class_name;
 		}
@@ -73,6 +72,8 @@ Students* class_allocate(Students* l, int id, char *class_name){
 void print_students(Students* l, char *class_name){
 Students* p = l;
 if(!empty(l)){
+if(class_name == p->class_name){
+
 printf("\n-----------------------------------");
 printf("\n\t%s - Student",p->class_name);
 printf("\n-----------------------------------\n");
@@ -84,7 +85,6 @@ if(avg >= 6){
 } else{
 	status = "FAILED";
 }
-printf("CLASS: %s\n",p->class_name);
 if(p->av1 == -1 || p->av2 == -1){
 status = "STUDYING"	;
 if(p->av2== -1 && p->av1 == -1){
@@ -100,7 +100,7 @@ printf("Registry Number: %d\nName: %s\nAv1:-\nAv2: -\nAverage: - %% \n Status: %
 
 printf("Registry Number: %d\nName: %s\nAv1:%d\nAv2:%d\nAverage: %.2f %% \n Status: %s\n", p->reg_num, p->name,p->av1,p->av2,avg,status);
 }
-
+}
 print_students(p->next, class_name);	
 }
 
@@ -162,13 +162,14 @@ int menu(Students* Classes){
         switch(trigger)
         {
             case 1:
-            	printf("Enter the class name you want to print");
+            	printf("Enter the class name you want to print\n");
             	char *name;
                 if(scanf("%s",&name)){
                 	print_students(Classes,name);
 				}
 				printf("Press any key to go back to the menu...");
 				system("pause");
+				system("cls || clear");
 
             case 2:
                 
