@@ -151,7 +151,7 @@ int menu(Students* Classes){
     {
         printf("\n\tSchool System\n\n");
         printf("1. Show Students\n");
-        printf("2. \n");
+        printf("2. Add Student\n");
         printf("3. \n");
         printf("0. Exit\n");
 		char *teste;
@@ -170,10 +170,26 @@ int menu(Students* Classes){
 				printf("Press any key to go back to the menu...");
 				system("pause");
 				system("cls || clear");
+				free(name);
 
             case 2:
-                
-                break;
+            	printf("")
+            	char *student_name;
+            	if(scanf("%s",&student_name)){
+            		if(scanf("%d",&registry)){
+            			if(!exists(Classes, registry)){
+            				Classes = add(Classes, "Rafael",1060016);
+							if(scanf("&s",&class_name))	{
+								Classes = class_allocate(Classes, 1060016, "Class 202");
+							}else{
+								//Remove Student because he couldn't be allocated to a class;
+							}
+						}
+            			
+					}
+	
+				}
+
 
             case 3:
                 
