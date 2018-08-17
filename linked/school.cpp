@@ -4,12 +4,12 @@
 struct student{
 	char *name;
 	int reg_num;
-	char *class_name;
 	int av1;
 	int av2;
 	float media;
 	struct student *next;
 };
+
 typedef struct student Students;
 
 Students* new_list(){
@@ -54,27 +54,14 @@ return l;
 
 
 
-Students* class_allocate(Students* l, int id, char *class_name){
-	Students* p = l;
-	if(!empty(l)){
-		printf("Class name Allocate -> %s",class_name);
-		if(p->reg_num == id){
-			p->class_name = class_name;
-		}
-		
-		class_allocate(p->next, id, class_name);
-	}
-	
-	
-	return p;
-}
 
 
-void print_students(Students* l, char *class_name){
+
+void print_students(Students* l, char *title){
 Students* p = l;
 if(!empty(l)){
 printf("\n-----------------------------------");
-printf("\n\t%s - Student",p->class_name);
+printf("\n\t%s - Student",title);
 printf("\n-----------------------------------\n");
 float avg = (float)((p->av1+p->av2)/2)*10;
 char *status;
@@ -84,7 +71,6 @@ if(avg >= 6){
 } else{
 	status = "FAILED";
 }
-printf("CLASS: %s\n",p->class_name);
 if(p->av1 == -1 || p->av2 == -1){
 status = "STUDYING"	;
 if(p->av2== -1 && p->av1 == -1){
@@ -100,8 +86,7 @@ printf("Registry Number: %d\nName: %s\nAv1:-\nAv2: -\nAverage: - %% \n Status: %
 
 printf("Registry Number: %d\nName: %s\nAv1:%d\nAv2:%d\nAverage: %.2f %% \n Status: %s\n", p->reg_num, p->name,p->av1,p->av2,avg,status);
 }
-
-print_students(p->next, class_name);	
+print_students(p->next, title);	
 }
 
 }
@@ -142,8 +127,7 @@ return p;
 	
 }
 
-
-int menu(Students* Classes){
+int menu(){
 	
     int trigger=1;
 
@@ -162,13 +146,8 @@ int menu(Students* Classes){
         switch(trigger)
         {
             case 1:
-            	printf("Enter the class name you want to print");
-            	char *name;
-                if(scanf("%s",&name)){
-                	print_students(Classes,name);
-				}
-				printf("Press any key to go back to the menu");
-				system("pause");
+                
+                break;
 
             case 2:
                 
@@ -192,23 +171,25 @@ int menu(Students* Classes){
 
 
 int main(){
-Students* Classes = new_list();
-Classes = add(Classes, "Rafael",1060016);
 
-Classes = class_allocate(Classes, 1060016, "Class 202");
-menu(Classes);
+menu();
+/*
+Students* ClassA = new_list();
+ClassA = add(ClassA, "Rafael",1060016);
+ClassA = add(ClassA, "Gabriel",2053716);
 
+ClassA = grade_add(ClassA, 1060016, 10, 1);
+ClassA = grade_add(ClassA, 1060016, 6, 2);
 
+print_students(ClassA,"Class A");
 
+Students* ClassB = new_list();
+ClassB = add(ClassB, "Rafaela",1070016);
+ClassB = add(ClassB, "Rafaello",1070016);
+ClassB = add(ClassB, "Gabriela",2073716);
 
-//ClassA = add(ClassA, "Gabriel",2053716);
-
-///ClassA = grade_add(ClassA, 1060016, 10, 1);
-//ClassA = grade_add(ClassA, 1060016, 6, 2);
-
-//print_students(Classes,"Class 202");
-
-
+print_students(ClassB,"Class B");
+*/
 }
 
 
