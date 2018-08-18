@@ -173,14 +173,16 @@ int menu(Students* Classes){
 				menu(Classes);
 
             case 2:
-            	printf("PLease, enter the student name:\n");
+            	printf("Please, enter the student name:\n");
             	char *student_name;
             	if(scanf("%s",&student_name)){
             		int registry;
+            		printf("Please, enter the student registry id:\n");
             		if(scanf("%d",&registry)){
             			if(!exists(Classes, registry)){
             				Classes = add(Classes, student_name,registry);
             				char *class_name;
+            		printf("Please, enter the class name of the student\n");
 							if(scanf("&s",&class_name))	{
 								Classes = class_allocate(Classes, registry, class_name);
 								free(student_name);
