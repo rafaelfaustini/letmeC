@@ -181,21 +181,21 @@ int menu(Students* Classes){
             		if(scanf("%d",&registry)){
             			if(!exists(Classes, registry)){
             				Classes = add(Classes, student_name,registry);
-            				char *class_name;
-            		printf("Please, enter the class name of the student\n");
-							if(scanf("&s",&class_name))	{
-								Classes = class_allocate(Classes, registry, class_name);
-								free(student_name);
-								free(class_name);
+            				printf("Please, enter the class name of the student\n");
+            				char *student_class;
+							if(scanf("&s",student_class))	{
+								Classes = class_allocate(Classes, registry, student_class);
+
 							}else{
 								//Remove Student because he couldn't be allocated to a class;
 							}
+					
+
 						}
             			
 					}
 	
 				}
-
 
             case 3:
                 
