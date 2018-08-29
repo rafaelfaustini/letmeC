@@ -1,53 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 
-struct arv{
+
+struct bin_tree{
 	char info;
-	struct arv *esq;
-	struct arv *dir;
-};typedef struct arv Arv;
+	struct bin_tree *left;
+	struct bin_tree *right;
+};typedef struct bin_tree Tree;
 
-Arv* cria(){
+Tree* create(){
 	return NULL;
 }
 
-int vazia(Arv* a){
+int empty(Tree* a){
 	if(a==NULL){
 		return 1;
 	}
 	return 0;
 }
 
-Arv* adiciona(char info,Arv* sae,Arv* sad)
+Tree* add(char info,Tree* left,Tree* right)
 {
-Arv* p=(Arv*)malloc(sizeof(Arv));
+Tree* p=(Tree*)malloc(sizeof(Tree));
 p->info = info;
-p->esq = sae;
-p->dir = sad;
+p->left = left;
+p->right = right;
 return p;
 }
 
-void simetrica(Arv* a)
+void in_order(Tree* a)
 {
-if (!vazia(a)){
+if (!empty(a)){
 printf("%c ", a->info); 
-simetrica(a->esq); 
-simetrica(a->dir); 
+in_order(a->left); 
+in_order(a->right); 
 }
 }
-void pre_ordem (Arv* a)
+void pre_order (Tree* a)
 {
-if (!vazia(a)){
-pre_ordem(a->esq); 
+if (!empty(a)){
+pre_order(a->left); 
 printf("%c ", a->info);
-pre_ordem(a->dir); 
+pre_order(a->right); 
 }
 }
-void pos_ordem (Arv* a)
+void post_order (Tree* a)
 {
-if (!vazia(a)){
-pos_ordem(a->esq); 
-pos_ordem(a->dir);
+if (!empty(a)){
+post_order(a->left); 
+post_order(a->right);
 printf("%c ", a->info); 
 }
 }
@@ -55,51 +57,59 @@ printf("%c ", a->info);
 
 
 int main(){
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	
+	
 // J
-Arv* a=adiciona('J',cria() ,cria() );
+Tree* a= add('J',create() ,create() );
 // I
-Arv* a1=adiciona('I', cria(), a );
+Tree* a1= add('I', create(), a );
 // M
-Arv* a2=adiciona('M', cria() , cria() );
+Tree* a2= add('M', create() , create() );
 // H
-Arv* a3=adiciona('H',a2 ,a1 );
+Tree* a3= add('H',a2 ,a1 );
 // D
-Arv* a4=adiciona('D',a3 ,cria() );
+Tree* a4= add('D',a3 ,create() );
 // G
-Arv* a5=adiciona('G',cria() ,cria() );
+Tree* a5= add('G',create() ,create() );
 // C
-Arv* a6=adiciona('C',a5 ,a4 );
+Tree* a6= add('C',a5 ,a4 );
 
 
 // L
-Arv* a7=adiciona('L',cria(),cria());
+Tree* a7= add('L',create(),create());
 // K
-Arv* a8=adiciona('K',cria(),a7);
+Tree* a8= add('K',create(),a7);
 // F
-Arv* a9=adiciona('F',cria(),cria());
+Tree* a9= add('F',create(),create());
 // E
-Arv* a10=adiciona('E',a8 ,a9 );
+Tree* a10= add('E',a8 ,a9 );
 
 
 // B
-Arv* a11=adiciona('B',a10 ,a6 );
+Tree* a11= add('B',a10 ,a6 );
+
 
 
 // Raiz A
-Arv* a12=adiciona('A',a11 ,cria() );
+Tree* root= add('A',a11 ,create() );
 
-
+SetConsoleTextAttribute(hConsole, BACKGROUND_RED);
 printf("\n\t\tInOrder \n\t");
-simetrica(a12);
+in_order(root);
 printf("\n\n");
 
 printf("\t\tPreOrder \n\t");
-pre_ordem(a12);
+pre_order(root);
 printf("\n\n");
 
+
+
 printf("\t\tPostOrder \n\t");
-pos_ordem(a12);
+
+post_order(root);
+
 printf("\n\n");
+
 
 return 0;
 }
