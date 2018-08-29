@@ -54,19 +54,34 @@ printf("%c ", a->info);
 
 
 int main(){
+// J
 Arv* a=adiciona('J',cria(),cria());
-Arv* a1=adiciona('I',a,cria());
-Arv* a2=adiciona('M',cria(),cria());
-Arv* a3=adiciona('H',a1,a2);
-Arv* a4=adiciona('D',cria(),a3);
+// I
+Arv* a1=adiciona('I', a, cria());
+// M
+Arv* a2=adiciona('M', cria() , cria() );
+// H
+Arv* a3=adiciona('H',a2,a1);
+// D
+Arv* a4=adiciona('D',a3,cria());
+// G
 Arv* a5=adiciona('G',cria(),cria());
-Arv* a6=adiciona('C',a4,a5);
+// C
+Arv* a6=adiciona('C',a5,a4);
+
+
+// L
 Arv* a7=adiciona('L',cria(),cria());
-Arv* a8=adiciona('K',a7,cria());
+// K
+Arv* a8=adiciona('K',cria(),a7);
+// F
 Arv* a9=adiciona('F',cria(),cria());
-Arv* a10=adiciona('E',a9,a8);
-Arv* a11=adiciona('B',a6,a10);
-Arv* a12=adiciona('A',cria(),a11);
+// E
+Arv* a10=adiciona('E',a8,a9);
+// B
+Arv* a11=adiciona('B',a10,a6);
+// A
+Arv* a12=adiciona('A',a11,cria());
 
 simetrica(a12);
 printf("\n");
