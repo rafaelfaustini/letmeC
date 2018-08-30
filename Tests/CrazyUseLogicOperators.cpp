@@ -27,6 +27,13 @@ int main(){
 	printf("Is A,B,C equal to 0 ? (1=Yes | 0=No)\nAnswer: %d\n",(a==0+b==0+c==0)==3); // Without Parentesis
 		printf("Is A,B,C equal to 0 ? (1=Yes | 0=No)\nAnswer: %d\n",((a==0)+(b==0)+(c==0))==3);
 		
+		printf("a==1 * B==1 = %d",(a==0)*(b==0));
+	
+		printf("\na==0 * B==1 = %d",(a==3)*(b==0));	
+		
+				printf("\na==0 / B==1 = %d",(a==3)/(b==0));	
+				
+		//printf("\na==1 / B==0 = %d",(a==0)/(b==3));	 Zero division
 			
 	
 	
