@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
 		printf("Invalid Script File\n");
 	}
 	
-	imprimir(2,"abc %d %d", 54, 12);
+	imprimir(3,"abc %d %d %d", 54, 26, 34);
 	
 	return 0;
 }

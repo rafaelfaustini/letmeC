@@ -4,11 +4,17 @@
 #include <stdarg.h>
 char* substring(char s[], char sub[], int ini, int fim) {
 	int i;
+	int j=0;
 	for (int i = ini ; i< fim ; i++){
-		sub[i] = s [i];
+		
+		sub[j] = s [i];
+	//	printf("\nsub[%d] %c\n", i, sub[i]);
+		j++;
 		
 	}
-	printf("\n%s\n", sub);
+		//	printf("\nInicio: %d Fim: %d\n", ini, fim);
+	
+//	printf("\na: %s\n", sub);
 	return sub;
 }
 
@@ -16,7 +22,9 @@ char* corta(int contador,int *progresso, char *str){
 	int achou=0;
 	int i;
 	int ini = *progresso;
+	
 	for(i=*progresso;i< strlen(str);i++){
+		if(i != strlen(str)-1){
 		if(str[i+1] == 37){
 			if(achou == 1){
 				*progresso = i;
@@ -24,9 +32,11 @@ char* corta(int contador,int *progresso, char *str){
 			}
 			achou++;
 		}
+	}
 		
 		
 	}
+
 	
 	char *novo = (char*) malloc(sizeof(char)*i+1);
 	novo = substring(str, novo, ini, i );
