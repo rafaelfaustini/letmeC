@@ -2,16 +2,28 @@
 #include "string.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "padraoes.h"
 
 int main(int argc, char *argv[]){
-	int count = strlen(argv[1])+5;
-	char *nomeArquivo = (char*) malloc(sizeof(char)*count);
-	strcpy(nomeArquivo, argv[1]);
-	strcat(nomeArquivo,".faus");
+	/*
+	if(argc<=1){
+		printf("faustini: no input files", argc);
+		return 1;
+	}
+	*/
+	//int count = strlen(argv[1])+5;
+	//char *nomeArquivo = (char*) malloc(sizeof(char)*count);
+	//strcpy(nomeArquivo, argv[1]);
+	//strcat(nomeArquivo,".faus");
 	FILE *arquivo;
 	
-	arquivo = fopen(nomeArquivo, "r");
-	if(arquivo == NULL){
-		printf("Invalid Script File");
+	//arquivo = fopen(nomeArquivo, "r");
+
+	if(arquivo == NULL || argc<=1){
+		printf("Invalid Script File\n");
 	}
+	
+	imprimir(2,"abc %d %d", 54, 12);
+	
+	return 0;
 }
