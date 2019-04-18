@@ -8,13 +8,10 @@ char* substring(char s[], char sub[], int ini, int fim) {
 	for (int i = ini ; i< fim ; i++){
 		
 		sub[j] = s [i];
-	//	printf("\nsub[%d] %c\n", i, sub[i]);
 		j++;
 		
 	}
-		//	printf("\nInicio: %d Fim: %d\n", ini, fim);
-	
-//	printf("\na: %s\n", sub);
+
 	return sub;
 }
 
