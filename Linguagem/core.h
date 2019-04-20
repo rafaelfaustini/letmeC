@@ -11,6 +11,10 @@ const char *comando[2] = {"imprimir","entrada"};
 };
 typedef struct lexica Lexica;
 
+int checarComando(lista){
+	
+}
+
 char** parseCommand(char* line){
 
 int i;
@@ -24,11 +28,13 @@ for(i=0;i<strlen(line);i++){
 		fim++;
 	} else{
 		strNova = (char*) malloc(sizeof(char)*i+1);
-		lista.add(substring(char line[], char strNova[], inicio, fim) );
+		listaInsere(substring(char line[], char strNova[], inicio, fim) );
 		ini = i+1;
 		fim++;
 	}
 }
+
+checarComando(lista);
 
 	
 }
